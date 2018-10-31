@@ -9,6 +9,9 @@ import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.LinearLayout;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class NavigationFragment extends BaseFragment implements View.OnClickListener {
 
     private LinearLayout tabItemHome;
@@ -26,6 +29,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
     PersonFragment personFragment;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState){
@@ -40,6 +44,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
         //主页面
         tabItemHome = (LinearLayout)view.findViewById(R.id.tab_item_home);
         tabItemHome.setOnClickListener(this);
+
         //分类页面
         tabItemCategory = (LinearLayout)view.findViewById(R.id.tab_item_category);
         tabItemCategory.setOnClickListener(this);
@@ -77,6 +82,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
         if (homeFragment!=null)
             fragmentTransaction.hide(homeFragment);
 
+
         if (categoryFragment!=null)
             fragmentTransaction.hide(categoryFragment);
 
@@ -91,7 +97,9 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
                 tabItemHomeBtn.setImageResource(R.drawable.tab_item_home_normal);
                 if (homeFragment == null){
                     homeFragment = new HomeFragment();
+                        //fragmentTransaction.add(R.id.content,homeFragment);
                         fragmentTransaction.add(R.id.content,homeFragment);
+
                 }else{
                     fragmentTransaction.show(homeFragment);
                 }
@@ -101,6 +109,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
                 tabItemCategoryBtn.setImageResource(R.drawable.tab_item_category_normal);
                 if (categoryFragment == null){
                     categoryFragment = new CategoryFragment();
+                    //fragmentTransaction.add(R.id.content,categoryFragment);
                     fragmentTransaction.add(R.id.content,categoryFragment);
                 }else{
                     fragmentTransaction.show(categoryFragment);

@@ -24,4 +24,9 @@
                 android:layout_weight="1">
             </FrameLayout>
     </RelativeLayout>
+
+    <!--<activity
+        android:name="MainActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden">
+    </activity>-->
 </android.support.constraint.ConstraintLayout>
