@@ -19,7 +19,11 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
     private ImageButton tabItemCartBtn;
     private ImageButton tabItemCategoryBtn;
     private ImageButton tabItemPersonalBtn;
-    private Object fragmentManager;
+    private android.support.v4.app.FragmentManager fragmentManager;
+    HomeFragment homeFragment;
+    CategoryFragment categoryFragment;
+    CartFragment cartFragment;
+    PersonFragment personFragment;
 
 
     @Override
@@ -58,7 +62,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
     public void setTabSelection(int id){
 
         //重置所有tabItem状态
-        ImageSwitcher tabItemHomeBtn;
+
         tabItemHomeBtn.setImageResource(R.drawable.tab_item_home_focus);
         tabItemCategoryBtn.setImageResource(R.drawable.tab_item_category_focus);
         tabItemCartBtn.setImageResource(R.drawable.tab_item_cart_focus);
@@ -67,16 +71,16 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //隐藏所有Fragment
 
-        HomeFragment homeFragment;
+
         if (homeFragment!=null)
             fragmentTransaction.hide(homeFragment);
-        CategoryFragment categoryFragment;
+
         if (categoryFragment!=null)
             fragmentTransaction.hide(categoryFragment);
-        CartFragment cartFragment;
+
         if (cartFragment!=null)
             fragmentTransaction.hide(cartFragment);
-        PersonFragment personFragment;
+
         if (personFragment!=null)
             fragmentTransaction.hide(personFragment);
         //根据tabItem的id来执行不同的操作
