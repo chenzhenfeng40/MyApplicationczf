@@ -49,10 +49,12 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
         //个人中心页面
         tabItemPersonal = (LinearLayout)view.findViewById(R.id.tab_item_personal);
         tabItemPersonal.setOnClickListener(this);
+
         tabItemHomeBtn = (ImageButton)view.findViewById(R.id.tab_item_home_btn);
         tabItemCategoryBtn = (ImageButton)view.findViewById(R.id.tab_item_category_btn);
         tabItemCartBtn = (ImageButton)view.findViewById(R.id.tab_item_cart_btn);
         tabItemPersonalBtn = (ImageButton)view.findViewById(R.id.tab_item_personal_btn);
+
         fragmentManager = getFragmentManager();//获得Fragment管理类对象
     }
     @Override
@@ -96,7 +98,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
                 break;
 
             case R.id.tab_item_category:
-                tabItemHomeBtn.setImageResource(R.drawable.tab_item_category_normal);
+                tabItemCategoryBtn.setImageResource(R.drawable.tab_item_category_normal);
                 if (categoryFragment == null){
                     categoryFragment = new CategoryFragment();
                     fragmentTransaction.add(R.id.content,categoryFragment);
@@ -106,7 +108,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
                 break;
 
             case R.id.tab_item_cart:
-                tabItemHomeBtn.setImageResource(R.drawable.tab_item_cart_normal);
+                tabItemCartBtn.setImageResource(R.drawable.tab_item_cart_normal);
                 if (cartFragment == null){
                     cartFragment = new CartFragment();
                     fragmentTransaction.add(R.id.content,cartFragment);
@@ -116,7 +118,7 @@ public class NavigationFragment extends BaseFragment implements View.OnClickList
                 break;
 
             case R.id.tab_item_personal:
-                tabItemHomeBtn.setImageResource(R.drawable.tab_item_personal_normal);
+                tabItemPersonalBtn.setImageResource(R.drawable.tab_item_personal_normal);
                 if (personFragment == null){
                     personFragment = new PersonFragment();
                     fragmentTransaction.add(R.id.content,personFragment);
